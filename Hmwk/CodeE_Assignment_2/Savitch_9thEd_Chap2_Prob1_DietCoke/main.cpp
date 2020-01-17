@@ -8,12 +8,12 @@
 
 //System Libraries - Post Here
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 //User Libraries - Post Here
 
 //Global Constants - Post Here
+const float gPerLb = 453.592;//Grams/lb
 //Only Universal Physics/Math/Conversions found here
 //No Global Variables
 //Higher Dimension arrays requiring definition prior to prototype only.
@@ -26,30 +26,24 @@ int main(int argc, char** argv) {
     
     //Declare variables or constants here
     //7 characters or less
-    float mLthDos, mSwUsed, hLthDos, mMass, hMassG, hMassLb,
-            cMass, gPerLb, gSwPerC, cPerSw;
-    int totalC;
+    float mSwUsed, mMass, hMassLb,
+            cMass, gSwPerC;
+    int nCans;
     //Initialize or input data here
-    mSwUsed = 5.0;
-    mMass = 35.0;
-    mLthDos = mSwUsed/mMass;
-    cMass = 350.0;
-    gPerLb = (45359.2/100.0);
-    gSwPerC = 0.001;
-    cPerSw = cMass*gSwPerC;
+    mMass = 35;//35 grams
+    mSwUsed = 5;//5 grams
+    gSwPerC = 1e-3f;//.001 Concentration
+    cMass = 350;//350 grams
     //Display initial conditions, headings here
     
     //Process inputs  - map to outputs here
-    cout<<"Program to calculate the limit of Soda Pop Consumption."<<endl;
-    cout<<"Input the desired dieters weight in lbs."<<endl;
-    cin>>hMassLb;
+    cout << "Program to calculate the limit of Soda Pop Consumption." << endl;
+    cout << "Input the desired dieters weight in lbs." << endl;
+    cin >> hMassLb;
     
-    hMassG=hMassLb*gPerLb;
-    hLthDos=hMassG*mLthDos;
-    totalC=hLthDos/cPerSw;
+    nCans = ((hMassLb*gPerLb)*(mSwUsed/mMass))/(cMass*gSwPerC);
     //Format and display outputs here
-    cout<<"The maximum number of soda pop cans"<<endl;
-    std::cout<<"which can be consumed is "<<std::setprecision(5)<<totalC<<" cans";
+    cout << "The maximum number of soda pop cans\n" << "which can be consumed is " << nCans << " cans";
     //Clean up allocated memory here
     
     //Exit stage left
