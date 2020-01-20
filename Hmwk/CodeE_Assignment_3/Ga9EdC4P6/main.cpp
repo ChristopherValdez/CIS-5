@@ -35,10 +35,10 @@ int main(int argc, char** argv) {
         printf ("The object weighs %.1f newtons", objWeight);
     }
     else if ( objWeight > 1000 ) {
-        cout << "The object is too heavy" << endl;
+        cout << "The object is too heavy";
     }
     else if ( objWeight < 10 ) {
-        cout << "The object is too light" << endl;
+        cout << "The object is too light";
     }
     
     //Display Outputs
